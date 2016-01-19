@@ -1,9 +1,9 @@
 {
-  "name": "react-component-boilerplate",
-  "description": "Boilerplate for React.js components",
-  "author": "Juho Vepsalainen",
-  "user": "survivejs",
-  "version": "2.1.4",
+  "name": "react-vertical-progress",
+  "description": "vertical progress bar with bookmarks support",
+  "author": "Jesus Trujillo",
+  "user": "yeyus",
+  "version": "0.1.0",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "karma start",
@@ -38,7 +38,7 @@
     "css-loader": "^0.23.1",
     "eslint": "^1.10.3",
     "eslint-loader": "^1.2.0",
-    "eslint-plugin-react": "^3.15.0",
+    "eslint-plugin-react": "^3.11.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "gh-pages": "^0.8.0",
@@ -72,16 +72,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/survivejs/react-component-boilerplate.git"
+    "url": "https://github.com/yeyus/react-vertical-progress.git"
   },
-  "homepage": "https://survivejs.github.io/react-component-boilerplate/",
+  "homepage": "https://yeyus.github.io/react-vertical-progress/",
   "bugs": {
-    "url": "https://github.com/survivejs/react-component-boilerplate/issues"
+    "url": "https://github.com/yeyus/react-vertical-progress/issues"
   },
   "keywords": [
     "react",
     "reactjs",
-    "boilerplate"
+    "progress bar",
+    "progress",
+    "timeline",
+    "vertical"
   ],
   "license": "MIT",
   "pre-push": [

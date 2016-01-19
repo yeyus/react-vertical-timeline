@@ -1,11 +1,7 @@
-[![build status](https://secure.travis-ci.org/survivejs/react-component-boilerplate.png)](http://travis-ci.org/survivejs/react-component-boilerplate) [![bitHound Score](https://www.bithound.io/github/survivejs/react-component-boilerplate/badges/score.svg)](https://www.bithound.io/github/survivejs/react-component-boilerplate) [![Dependency Status](https://david-dm.org/survivejs/react-component-boilerplate.svg)](https://david-dm.org/survivejs/react-component-boilerplate)
-# react-component-boilerplate - Boilerplate for React.js components
-
-This is a simple boilerplate that has been developed to make it easier to develop React components and small projects. Check out [SurviveJS - Webpack and React](http://survivejs.com/) to dig deeper into the topic.
+[![build status](https://secure.travis-ci.org/yeyus/react-vertical-timeline.png)](http://travis-ci.org/yeyus/react-vertical-timeline) [![bitHound Score](https://www.bithound.io/github/yeyus/react-vertical-timeline/badges/score.svg)](https://www.bithound.io/github/yeyus/react-vertical-timeline) [![Dependency Status](https://david-dm.org/yeyus/react-vertical-timeline.svg)](https://david-dm.org/yeyus/react-vertical-timeline)
+# react-vertical-timeline - Vertical progress bar with bookmarks support
 
 ## Basic Usage
-
-If you want to replace project meta information (author etc.), consider using a tool like [replace-project-meta](https://www.npmjs.com/package/replace-project-meta).
 
 * Linting - **npm run lint** - Runs ESLint.
 * Testing - **npm test** and **npm run tdd** - Runs Karma/Mocha/Chai/Phantom. Code coverage report is generated through istanbul/isparta to `build/`.
@@ -17,15 +13,21 @@ If you don't want to use universal rendering for the React portion, set `RENDER_
 
 ## Highlighting Demo
 
-```js
-var a = 5;
-var b = 10;
-
-// just trying out code highlighting feature here
-console.log(a + b);
+```html
+<Timeline height={300} progress={50} onSelect={fn..}>
+  <Bookmark progress={20} onSelect={fn..}>
+    Hi there 20%
+  </Bookmark>
+  <Bookmark progress={55} onSelect={fn..}>
+    Hi there 55%
+  </Bookmark>
+  <Bookmark progress={75} onSelect={fn..}>
+    Hi there 75%
+  </Bookmark>
+</Timeline>
 ```
 
 ## License
 
-*react-component-boilerplate* is available under MIT. See LICENSE for more details.
+*react-vertical-timeline* is available under MIT. See LICENSE for more details. Based on *react-component-boilerplate*
 
