@@ -24,8 +24,8 @@ const config = {
     demo: path.join(ROOT_PATH, 'demo'),
     tests: path.join(ROOT_PATH, 'tests')
   },
-  filename: 'boilerplate',
-  library: 'Boilerplate'
+  filename: 'react-vertical-timeline',
+  library: 'react-vertical-timeline'
 };
 const CSS_PATHS = [
   config.paths.demo,

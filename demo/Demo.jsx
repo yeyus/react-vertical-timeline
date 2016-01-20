@@ -1,5 +1,5 @@
 import React from 'react';
-import { Timeline, Bookmark } from '../src/index.jsx';
+import { Timeline, Bookmark } from '../src/index.js';
 
 export default class Demo extends React.Component {
   constructor() {
