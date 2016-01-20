@@ -23,14 +23,14 @@ export default class Demo extends React.Component {
   render() {
     return (
       <div>
-        <Timeline height={300} progress={ this.state.progress } onSelect={ this.progressClick.bind(this) }>
-          <Bookmark progress={20} onSelect={ this.progressClick.bind(this) }>
+        <Timeline height={300} onSelect={ this.progressClick.bind(this) } progress={ this.state.progress }>
+          <Bookmark onSelect={ this.progressClick.bind(this) } progress={20}>
             Hi there 20%
           </Bookmark>
-          <Bookmark progress={55} onSelect={ this.progressClick.bind(this) }>
+          <Bookmark onSelect={ this.progressClick.bind(this) } progress={55}>
             Hi there 55%
           </Bookmark>
-          <Bookmark progress={75} onSelect={ this.progressClick.bind(this) }>
+          <Bookmark onSelect={ this.progressClick.bind(this) } progress={75}>
             Hi there 75%
           </Bookmark>
         </Timeline>

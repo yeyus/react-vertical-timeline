@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {
-  renderIntoDocument,
-  findRenderedDOMComponentWithClass,
-  findRenderedDOMComponentWithTag,
-  Simulate
+  renderIntoDocument
 } from 'react-addons-test-utils';
 import Timeline from '../src/Timeline.jsx';
 
