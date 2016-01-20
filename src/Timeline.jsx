@@ -2,8 +2,6 @@
 
 import React from 'react';
 
-// this should be the entry point to your library
-
 export default class Timeline extends React.Component {
 
   constructor() {

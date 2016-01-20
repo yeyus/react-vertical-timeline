@@ -1,6 +1,6 @@
 {
-  "name": "react-vertical-progress",
-  "description": "vertical progress bar with bookmarks support",
+  "name": "react-vertical-timeline",
+  "description": "vertical timeline bar with bookmarks support",
   "author": "Jesus Trujillo",
   "user": "yeyus",
   "version": "0.1.0",
@@ -49,9 +49,11 @@
     "json-loader": "^0.5.4",
     "karma": "^0.13.19",
     "karma-chai": "^0.1.0",
+    "karma-chai-sinon": "^0.1.5",
     "karma-coverage": "^0.5.3",
     "karma-mocha": "^0.2.1",
     "karma-phantomjs-launcher": "^0.2.3",
+    "karma-sinon": "^1.0.4",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.23",
     "karma-webpack": "^1.7.0",
@@ -62,6 +64,8 @@
     "purecss": "^0.6.0",
     "react-addons-test-utils": "^0.14.6",
     "react-ghfork": "^0.3.2",
+    "sinon": "^1.17.2",
+    "sinon-chai": "^2.8.0",
     "style-loader": "^0.13.0",
     "sync-exec": "^0.6.2",
     "system-bell-webpack-plugin": "^1.0.0",
@@ -72,11 +76,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yeyus/react-vertical-progress.git"
+    "url": "https://github.com/yeyus/react-vertical-timeline.git"
   },
-  "homepage": "https://yeyus.github.io/react-vertical-progress/",
+  "homepage": "https://yeyus.github.io/react-vertical-timeline/",
   "bugs": {
-    "url": "https://github.com/yeyus/react-vertical-progress/issues"
+    "url": "https://github.com/yeyus/react-vertical-timeline/issues"
   },
   "keywords": [
     "react",

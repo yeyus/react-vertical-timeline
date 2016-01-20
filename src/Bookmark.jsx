@@ -17,20 +17,20 @@ export default class Bookmark extends React.Component {
     ].join(' ');
 
     return (
-      <div className={ cls } style={ style } onClick={ this.clickHandler.bind(this) }>
+      <div className={ cls } onClick={ this.clickHandler.bind(this) } style={ style }>
         <div>{ this.props.children }</div>
       </div>
     );
   }
 }
 
-Bookmark.propTypes = {
-  children: React.PropTypes.node,
-  onSelect: React.PropTypes.func,
-  progress: React.PropTypes.number.isRequired
-};
-
 Bookmark.contextTypes = {
   height: React.PropTypes.number.isRequired,
   progress: React.PropTypes.number
+};
+
+Bookmark.propTypes = {
+  children: React.PropTypes.arrayOf(React.PropTypes.node),
+  onSelect: React.PropTypes.func,
+  progress: React.PropTypes.number.isRequired
 };

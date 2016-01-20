@@ -10,7 +10,9 @@ module.exports = function karmaConfig (config) {
 
             // Reference: http://chaijs.com/api/bdd/
             // Use chai assertions
-            'chai'
+            'chai',
+
+            'sinon'
         ],
 
         reporters: [
