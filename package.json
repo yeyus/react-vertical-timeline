@@ -3,7 +3,7 @@
   "description": "vertical timeline bar with bookmarks support",
   "author": "Jesus Trujillo",
   "user": "yeyus",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "karma start",
