@@ -13,7 +13,7 @@ import renderJSX from './lib/render.jsx';
 import App from './demo/App.jsx';
 import pkg from './package.json';
 
-const RENDER_UNIVERSAL = true;
+const RENDER_UNIVERSAL = false;
 const TARGET = process.env.npm_lifecycle_event;
 const ROOT_PATH = __dirname;
 const config = {
@@ -123,8 +123,7 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
     entry: {
       app: config.paths.demo,
       vendors: [
-        'react',
-        'react-dom'
+        'react'
       ]
     },
     output: {
@@ -134,7 +133,7 @@ if (TARGET === 'gh-pages' || TARGET === 'gh-pages:stats') {
     },
     plugins: [
       new Clean(['gh-pages'], {
-        verbose: false
+        verbose: true
       }),
       new ExtractTextPlugin('styles.[chunkhash].css'),
       new webpack.DefinePlugin({

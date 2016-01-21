@@ -21,9 +21,6 @@
     "postinstall": "node lib/post_install.js"
   },
   "main": "dist-modules",
-  "peerDependencies": {
-    "react": "^0.14.6"
-  },
   "devDependencies": {
     "babel-cli": "^6.4.0",
     "babel-core": "^6.4.0",
@@ -62,6 +59,7 @@
     "phantomjs": "^1.9.19",
     "phantomjs-polyfill": "0.0.1",
     "purecss": "^0.6.0",
+    "react": "^0.14.6",
     "react-addons-test-utils": "^0.14.6",
     "react-dom": "^0.14.6",
     "react-ghfork": "^0.3.2",
