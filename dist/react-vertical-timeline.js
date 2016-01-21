@@ -281,7 +281,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 	
 	Bookmark.propTypes = {
-	  children: _react2.default.PropTypes.arrayOf(_react2.default.PropTypes.node),
+	  children: _react2.default.PropTypes.node,
 	  onSelect: _react2.default.PropTypes.func,
 	  progress: _react2.default.PropTypes.number.isRequired
 	};

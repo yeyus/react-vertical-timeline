@@ -30,7 +30,7 @@ Bookmark.contextTypes = {
 };
 
 Bookmark.propTypes = {
-  children: React.PropTypes.arrayOf(React.PropTypes.node),
+  children: React.PropTypes.node,
   onSelect: React.PropTypes.func,
   progress: React.PropTypes.number.isRequired
 };

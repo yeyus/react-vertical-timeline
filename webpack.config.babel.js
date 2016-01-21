@@ -124,7 +124,8 @@ if (TARGET === 'gh-pages') {
     entry: {
       app: config.paths.demo,
       vendors: [
-        'react'
+        'react',
+        'react-dom'
       ]
     },
     output: {
