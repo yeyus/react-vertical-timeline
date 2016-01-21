@@ -3,7 +3,6 @@
 
 ## Basic Usage
 
-<<<<<<< HEAD
 * Linting - **npm run lint** - Runs ESLint.
 * Testing - **npm test** and **npm run tdd** - Runs Karma/Mocha/Chai/Phantom. Code coverage report is generated through istanbul/isparta to `build/`.
 
