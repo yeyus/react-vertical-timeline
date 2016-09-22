@@ -67,3 +67,27 @@ div.timeline-bookmark:hover::before {
   transform: scale(1.5);
   opacity: 1;
 }
+
+.timeline-marker {
+  position: absolute;
+  top: 0px;
+  left: 36px;
+  color: #FFF;
+  z-index: 0;
+  opacity: 0.3;
+}
+
+.timeline-marker>div.text{
+  margin-top: -14px;
+  font-style: italic;
+}
+
+div.timeline-marker::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -21px;
+  height: 0px;
+  width: 12px;
+  border-bottom: 2px solid #FFF;
+}
