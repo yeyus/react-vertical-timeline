@@ -6,7 +6,7 @@ import {
   findRenderedDOMComponentWithClass,
   Simulate
 } from 'react-addons-test-utils';
-import Bookmark from '../src/Bookmark.jsx';
+import Bookmark from '../src/Bookmark';
 
 describe('Bookmark', function() {
   var sandbox,
