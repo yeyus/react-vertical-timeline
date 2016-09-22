@@ -1,9 +1,11 @@
 'use strict';
 
-import Timeline from './Timeline.jsx';
-import Bookmark from './Bookmark.jsx';
+import Timeline from './Timeline';
+import Bookmark from './Bookmark';
+import Marker from './Marker';
 
 module.exports = {
   'Timeline': Timeline,
-  'Bookmark': Bookmark
+  'Bookmark': Bookmark,
+  'Marker': Marker
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Timeline, Bookmark } from '../src/index.js';
+import { Timeline, Bookmark, Marker } from '../src/index.js';
 
 export default class Demo extends React.Component {
   constructor() {
@@ -27,6 +27,7 @@ export default class Demo extends React.Component {
           <Bookmark onSelect={ this.progressClick.bind(this) } progress={20}>
             Hi there 20%
           </Bookmark>
+          <Marker progress={50} />
           <Bookmark onSelect={ this.progressClick.bind(this) } progress={55}>
             Hi there 55%
           </Bookmark>

@@ -6,7 +6,7 @@ import {
   findRenderedDOMComponentWithClass,
   Simulate
 } from 'react-addons-test-utils';
-import Timeline from '../src/Timeline.jsx';
+import Timeline from '../src/Timeline';
 
 describe('Timeline', function() {
   var sandbox,
