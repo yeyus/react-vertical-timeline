@@ -2,11 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class Timeline extends React.Component {
-
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      progress: 0
+      progress: props.progress
     };
   }
 
@@ -28,7 +27,7 @@ export default class Timeline extends React.Component {
   }
 
   getHeight(element) {
-    var e = element;
+    let e = element;
     while (e.className !== 'timeline-block' && e.parentElement) {
       e = element.parentElement;
     }
@@ -37,38 +36,41 @@ export default class Timeline extends React.Component {
 
   getPosition(e) {
     // e = Mouse click event.
-    var rect = e.target.getBoundingClientRect();
-    var x = e.clientX - rect.left; //x position within the element.
-    var y = e.clientY - rect.top;  //y position within the element.
+    const rect = e.target.getBoundingClientRect();
+    const x = e.clientX - rect.left; // x position within the element.
+    const y = e.clientY - rect.top; // y position within the element.
     return { x, y };
   }
 
 
   handleProgressClick(e) {
-    var parentPosition = this.getPosition(e);
-    var progress = (parentPosition.y / this.getHeight(e.currentTarget)) * 100;
+    const parentPosition = this.getPosition(e);
+    const progress = (parentPosition.y / this.getHeight(e.currentTarget)) * 100;
     this.props.onSelect(progress);
     e.stopPropagation();
     e.preventDefault();
   }
 
   render() {
-    var clickHandler = this.handleProgressClick.bind(this);
-    var progressStyle = {
-      height: this.state.progress+'%'
-    }, wrapperStyle = {
-      height: this.props.height+'px'
-    };
+    const clickHandler = this.handleProgressClick.bind(this);
+    let progressStyle = {
+        height: `${this.state.progress}%`
+      },
+      wrapperStyle = {
+        height: `${this.props.height}px`
+      };
 
     return (
-      <div className="timeline-block" style={ wrapperStyle }>
-        <div className="timeline-line"
-          onClick={ clickHandler }>
-        </div>
-        <div className="timeline-progress"
-          onClick={ clickHandler }
-          style={ progressStyle }>
-        </div>
+      <div className="timeline-block" style={wrapperStyle}>
+        <div
+          className="timeline-line"
+          onClick={clickHandler}
+        />
+        <div
+          className="timeline-progress"
+          onClick={clickHandler}
+          style={progressStyle}
+        />
         {this.props.children}
       </div>
     );
@@ -84,7 +86,7 @@ Timeline.propTypes = {
 
 Timeline.defaultProps = {
   height: 200,
-  onSelect: function() {},
+  onSelect() {},
   progress: 0
 };
 

@@ -3,17 +3,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import GithubCorner from 'react-github-corner';
 import { Catalog, CodeSpecimen, ReactSpecimen, pageLoader } from 'catalog';
-import { Timeline, Bookmark } from '../src/index.js';
-
 import 'purecss/build/pure.css';
+
+import { Timeline, Bookmark } from '../src/index';
 import './main.css';
 import '../style.css';
 
 // Add your documentation imports here. These are available to
 // React specimen. Do NOT pass React here as Catalog does that.
 const documentationImports = {
-    Timeline,
-    Bookmark
+  Timeline,
+  Bookmark
 };
 const pages = [
   {
