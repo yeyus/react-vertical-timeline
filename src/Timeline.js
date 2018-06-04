@@ -4,19 +4,28 @@ import PropTypes from 'prop-types';
 export default class Timeline extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleProgressClick = this.handleProgressClick.bind(this);
+
     this.state = {
-      progress: props.progress
+      progress: this.validateProgressValue(props.progress)
     };
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.progress > 100) {
-      this.state.progress = 100;
-    } else if (nextProps.progress < 0) {
-      this.state.progress = 0;
-    } else {
-      this.state.progress = nextProps.progress;
+    this.setState({ 
+      progress: this.validateProgressValue(nextProps.progress)
+    });
+  }
+
+  validateProgressValue(value) {
+    let progress = value;
+    if (value > 100) {
+      progress = 100;
+    } else if (value < 0) {
+      progress = 0;
     }
+    return progress;
   }
 
   getChildContext() {
@@ -52,7 +61,6 @@ export default class Timeline extends React.Component {
   }
 
   render() {
-    const clickHandler = this.handleProgressClick.bind(this);
     let progressStyle = {
         height: `${this.state.progress}%`
       },
@@ -64,11 +72,11 @@ export default class Timeline extends React.Component {
       <div className="timeline-block" style={wrapperStyle}>
         <div
           className="timeline-line"
-          onClick={clickHandler}
+          onClick={this.handleProgressClick}
         />
         <div
           className="timeline-progress"
-          onClick={clickHandler}
+          onClick={this.handleProgressClick}
           style={progressStyle}
         />
         {this.props.children}

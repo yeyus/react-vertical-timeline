@@ -1,56 +1,54 @@
-/*global sinon:true*/
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {
-  renderIntoDocument,
-  findRenderedDOMComponentWithClass,
-  Simulate
-} from 'react-addons-test-utils';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Timeline from '../src/Timeline';
 
-describe('Timeline', function() {
-  var sandbox,
-    timeline,
-    timelineNode,
-    onSelect,
-    onSelectMock;
+Enzyme.configure({ adapter: new Adapter() });
 
-  beforeEach(function() {
-    sandbox = sinon.sandbox.create();
+describe('Timeline', () => {
+  it('should render the timeline', () => {
+    const wrapper = shallow(<Timeline height={100} progress={50}></Timeline>);
 
-    onSelect = {
-      fn: function() {
-      }
+    expect(wrapper.html()).toBe('<div class=\"timeline-block\" style=\"height:100px\"><div class=\"timeline-line\"></div><div class=\"timeline-progress\" style=\"height:50%\"></div></div>');
+  });
+
+  it('should render progress 0 if < 0', () => {
+    const wrapper = shallow(<Timeline height={100} progress={-50}></Timeline>);
+
+    expect(wrapper.html()).toBe('<div class=\"timeline-block\" style=\"height:100px\"><div class=\"timeline-line\"></div><div class=\"timeline-progress\" style=\"height:0%\"></div></div>');
+  });
+
+  it('should render progress 100 if > 100', () => {
+    const wrapper = shallow(<Timeline height={100} progress={105}></Timeline>);
+
+    expect(wrapper.html()).toBe('<div class=\"timeline-block\" style=\"height:100px\"><div class=\"timeline-line\"></div><div class=\"timeline-progress\" style=\"height:100%\"></div></div>');
+  });
+
+  it('should handle click events', () => {
+    const mockfn = jest.fn();
+    const wrapper = shallow(<Timeline height={100} progress={50} onSelect={mockfn}></Timeline>);
+
+    const target = {
+      getBoundingClientRect: () => {
+        return {
+          left: 0,
+          top: 0
+        }
+      },
+      offsetHeight: 100,
     };
-    onSelectMock = sandbox.mock(onSelect).expects('fn');
 
-    timeline = renderIntoDocument(
-      <Timeline height={ 300 } onSelect={ onSelect.fn } progress={ 50 } />
-    ),
-    timelineNode = ReactDOM.findDOMNode(timeline);
-  });
+    wrapper.instance().handleProgressClick({
+      currentTarget: target,
+      target: target,
+      clientY: 50,
+      clientX: 0,
+      parentElement: {},
+      stopPropagation: () => {},
+      preventDefault: () => {}
+    });
 
-  afterEach(function() {
-    sandbox.restore();
-  });
-
-  it('should render the component', function() {
-    expect(timeline).to.be.defined;
-    expect(timelineNode).to.be.defined;
-    expect(timelineNode.className).to.equal('timeline-block');
-    expect(timelineNode.children[0].className).to.equal('timeline-line');
-    expect(timelineNode.children[1].className).to.equal('timeline-progress');
-  });
-
-  it('should call onSelect when the timeline is clicked after progress', function() {
-    onSelectMock.once();
-    Simulate.click(findRenderedDOMComponentWithClass(timeline, 'timeline-line'));
-    onSelectMock.verify();
-  });
-
-  it('should call onSelect when the timeline is clicked in elapsed progress', function() {
-    onSelectMock.once();
-    Simulate.click(findRenderedDOMComponentWithClass(timeline, 'timeline-progress'));
-    onSelectMock.verify();
+    expect(mockfn.mock.calls.length).toBe(1);
+    expect(mockfn.mock.calls[0][0]).toBe(50);
   });
 });

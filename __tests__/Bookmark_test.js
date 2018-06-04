@@ -1,106 +1,46 @@
-/*global sinon:true*/
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {
-  renderIntoDocument,
-  findRenderedDOMComponentWithClass,
-  Simulate
-} from 'react-addons-test-utils';
+import Enzyme, { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import Bookmark from '../src/Bookmark';
 
-describe('Bookmark', function() {
-  var sandbox,
-    bookmark,
-    bookmarkNode,
-    onSelect,
-    onSelectMock;
+Enzyme.configure({ adapter: new Adapter() });
 
-  beforeEach(function() {
-    sandbox = sinon.sandbox.create();
-  });
 
-  afterEach(function() {
-    sandbox.restore();
-  });
-
-  describe('contextless', function() {
-    beforeEach(function() {
-      onSelect = {
-        fn: function() {
-        }
-      };
-      onSelectMock = sandbox.mock(onSelect).expects('fn');
-
-      bookmark = renderIntoDocument(
-        <Bookmark onSelect={ onSelect.fn } progress={ 50 }>Test</Bookmark>
-      );
-      bookmarkNode = ReactDOM.findDOMNode(bookmark);
-    });
-
-    it('should render inner content', function() {
-      expect(bookmarkNode.textContent).to.equal('Test');
-    });
-
-    it('should have proper class', function() {
-      expect(bookmarkNode.className).to.contain('timeline-bookmark');
-    });
-
-    it('should call onSelect on click', function() {
-      onSelectMock.once();
-      Simulate.click(findRenderedDOMComponentWithClass(bookmark, 'timeline-bookmark'));
-      onSelectMock.verify();
-    });
-  });
-
-  describe('contextful', function() {
-    let context;
-
-    class Container extends React.Component {
-
-      getChildContext() { return context }
-
-      render() {
-        return <div>{ this.props.children }></div>
+describe('Bookmark', () => {
+  it('should render a bookmark', () => {
+    const wrapper = shallow(<Bookmark progress={50}>Test Test Test</Bookmark>, {
+      context: {
+        height: 100,
+        progress: 30
       }
-    }
-
-    Container.propTypes = {
-      children: React.PropTypes.arrayOf(React.PropTypes.node)
-    }
-
-    Container.childContextTypes = {
-      progress: React.PropTypes.number,
-      height: React.PropTypes.number
-    };
-
-    beforeEach(function() {
-      onSelect = {
-        fn: function() {
-        }
-      },
-      onSelectMock = sandbox.mock(onSelect).expects('fn');
     });
 
-    it('should be marked as visited when progress goes beyond bookmark', function() {
-      context = { progress: 55 };
-      bookmark = renderIntoDocument(
-        <Container>
-          <Bookmark onSelect={ onSelect.fn } progress={ 50 }>Test</Bookmark>
-        </Container>
-      ),
-      bookmarkNode = findRenderedDOMComponentWithClass(bookmark, 'timeline-bookmark');
-      expect(bookmarkNode.className).to.contain('visited');
+    expect(wrapper.html()).toEqual('<div class="timeline-bookmark " style="top:50px"><div>Test Test Test</div></div>');
+  });
+
+  it('should render a visited bookmark', () => {
+    const wrapper = shallow(<Bookmark progress={50}>Test Test Test</Bookmark>, {
+      context: {
+        height: 100,
+        progress: 60
+      }
     });
 
-    it('should be marked as visited when progress is before bookmark', function() {
-      context = { progress: 40 };
-      bookmark = renderIntoDocument(
-        <Container>
-          <Bookmark onSelect={ onSelect.fn } progress={ 50 }>Test</Bookmark>
-        </Container>
-      ),
-      bookmarkNode = findRenderedDOMComponentWithClass(bookmark, 'timeline-bookmark');
-      expect(bookmarkNode.className).not.to.contain('visited');
+    expect(wrapper.html()).toEqual('<div class="timeline-bookmark visited" style="top:50px"><div>Test Test Test</div></div>');
+  });
+
+  it('should handle click events', () => {
+    const mockfn = jest.fn();
+    const wrapper = shallow(<Bookmark progress={50} onSelect={mockfn}>Test Test Test</Bookmark>, {
+      context: {
+        height: 100,
+        progress: 30
+      }
     });
-  })
+
+    wrapper.instance().clickHandler();
+
+    expect(mockfn.mock.calls.length).toBe(1);
+    expect(mockfn.mock.calls[0][0]).toBe(50);
+  });
 });
