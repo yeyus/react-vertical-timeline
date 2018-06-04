@@ -1,6 +1,5 @@
-'use strict';
-
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Bookmark extends React.Component {
 
@@ -25,12 +24,12 @@ export default class Bookmark extends React.Component {
 }
 
 Bookmark.contextTypes = {
-  height: React.PropTypes.number.isRequired,
-  progress: React.PropTypes.number
+  height: PropTypes.number.isRequired,
+  progress: PropTypes.number
 };
 
 Bookmark.propTypes = {
-  children: React.PropTypes.node,
-  onSelect: React.PropTypes.func,
-  progress: React.PropTypes.number.isRequired
+  children: PropTypes.node,
+  onSelect: PropTypes.func,
+  progress: PropTypes.number.isRequired
 };

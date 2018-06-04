@@ -1,13 +1,15 @@
 {
   "presets": [
-    "es2015",
+    "env",
     "react"
   ],
-  "env": {
-    "start": {
-      "presets": [
-        "react-hmre"
-      ]
-    }
-  }
+  "plugins": [
+    "syntax-dynamic-import",
+    [
+      "transform-react-remove-prop-types",
+      {
+        "mode": "wrap"
+      }
+    ]
+  ]
 }

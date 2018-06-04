@@ -22,7 +22,6 @@ export default class Demo extends React.Component {
 
   render() {
     return (
-      <div>
         <Timeline height={300} onSelect={ this.progressClick.bind(this) } progress={ this.state.progress }>
           <Bookmark onSelect={ this.progressClick.bind(this) } progress={20}>
             Hi there 20%
@@ -35,6 +34,6 @@ export default class Demo extends React.Component {
             Hi there 75%
           </Bookmark>
         </Timeline>
-      </div>);
+    );
   }
 }

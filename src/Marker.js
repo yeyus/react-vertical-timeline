@@ -1,6 +1,5 @@
-'use strict';
-
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Marker extends React.Component {
   render() {
@@ -17,9 +16,9 @@ export default class Marker extends React.Component {
 }
 
 Marker.contextTypes = {
-  height: React.PropTypes.number.isRequired
+  height: PropTypes.number.isRequired
 };
 
 Marker.propTypes = {
-  progress: React.PropTypes.number.isRequired
+  progress: PropTypes.number.isRequired
 };

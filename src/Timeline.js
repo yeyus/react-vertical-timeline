@@ -1,6 +1,5 @@
-'use strict';
-
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Timeline extends React.Component {
 
@@ -36,21 +35,18 @@ export default class Timeline extends React.Component {
     return e && e.offsetHeight;
   }
 
-  getPosition(element) {
-    var xPosition = 0;
-    var yPosition = 0;
-
-    while (element) {
-        xPosition += (element.offsetLeft - element.scrollLeft + element.clientLeft);
-        yPosition += (element.offsetTop - element.scrollTop + element.clientTop);
-        element = element.offsetParent;
-    }
-    return { x: xPosition, y: yPosition };
+  getPosition(e) {
+    // e = Mouse click event.
+    var rect = e.target.getBoundingClientRect();
+    var x = e.clientX - rect.left; //x position within the element.
+    var y = e.clientY - rect.top;  //y position within the element.
+    return { x, y };
   }
 
+
   handleProgressClick(e) {
-    var parentPosition = this.getPosition(e.currentTarget);
-    var progress = ((e.clientY - parentPosition.y) / this.getHeight(e.currentTarget)) * 100;
+    var parentPosition = this.getPosition(e);
+    var progress = (parentPosition.y / this.getHeight(e.currentTarget)) * 100;
     this.props.onSelect(progress);
     e.stopPropagation();
     e.preventDefault();
@@ -80,10 +76,10 @@ export default class Timeline extends React.Component {
 }
 
 Timeline.propTypes = {
-  children: React.PropTypes.node,
-  height: React.PropTypes.number.isRequired,
-  onSelect: React.PropTypes.func,
-  progress: React.PropTypes.number
+  children: PropTypes.node,
+  height: PropTypes.number.isRequired,
+  onSelect: PropTypes.func,
+  progress: PropTypes.number
 };
 
 Timeline.defaultProps = {
@@ -93,6 +89,6 @@ Timeline.defaultProps = {
 };
 
 Timeline.childContextTypes = {
-  height: React.PropTypes.number,
-  progress: React.PropTypes.number
+  height: PropTypes.number,
+  progress: PropTypes.number
 };
