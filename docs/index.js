@@ -5,7 +5,7 @@ import GithubCorner from 'react-github-corner';
 import { Catalog, CodeSpecimen, ReactSpecimen, pageLoader } from 'catalog';
 import 'purecss/build/pure.css';
 
-import { Timeline, Bookmark } from '../src/index';
+import { Timeline, Bookmark, Marker } from '../src/index';
 import './main.css';
 import '../style.css';
 
@@ -13,7 +13,8 @@ import '../style.css';
 // React specimen. Do NOT pass React here as Catalog does that.
 const documentationImports = {
   Timeline,
-  Bookmark
+  Bookmark,
+  Marker
 };
 const pages = [
   {

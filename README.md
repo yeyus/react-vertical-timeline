@@ -56,6 +56,7 @@ state: { progress: 50 }
   <Bookmark progress={20} onSelect={p => setState({ progress: p})}>
     Hi there 20%
   </Bookmark>
+  <Marker progress={33}/>
   <Bookmark progress={55} onSelect={p => setState({ progress: p})}>
     Hi there 55%
   </Bookmark>

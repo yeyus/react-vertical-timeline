@@ -72,7 +72,6 @@ div.timeline-bookmark:hover::before {
   position: absolute;
   top: 0px;
   left: 36px;
-  color: #FFF;
   z-index: 0;
   opacity: 0.3;
 }
@@ -89,5 +88,5 @@ div.timeline-marker::before {
   left: -21px;
   height: 0px;
   width: 12px;
-  border-bottom: 2px solid #FFF;
+  border-bottom: 2px solid #000;
 }
