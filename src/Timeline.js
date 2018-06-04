@@ -13,7 +13,7 @@ export default class Timeline extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ 
+    this.setState({
       progress: this.validateProgressValue(nextProps.progress)
     });
   }
