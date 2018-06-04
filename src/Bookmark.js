@@ -33,6 +33,11 @@ Bookmark.contextTypes = {
   onSelect() {}
 };
 
+Bookmark.defaultProps = {
+  onSelect: () => {},
+  children: []
+};
+
 Bookmark.propTypes = {
   children: PropTypes.node,
   onSelect: PropTypes.func,

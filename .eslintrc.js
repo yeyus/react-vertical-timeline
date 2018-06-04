@@ -7,7 +7,8 @@ module.exports = {
     "node": true
   },
   "globals": {
-    "test": true
+    "test": true,
+    "jest": true
   },
   "plugins": [
     "react"
@@ -25,6 +26,8 @@ module.exports = {
     "react/sort-comp": 0,
     "react/no-multi-comp": 0,
     "react/require-extension": 0,
-    "react/prefer-stateless-function": 0
+    "react/prefer-stateless-function": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "jsx-a11y/no-static-element-interactions": 0
   }
 };

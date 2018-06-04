@@ -9,19 +9,19 @@ describe('Timeline', () => {
   it('should render the timeline', () => {
     const wrapper = shallow(<Timeline height={100} progress={50} />);
 
-    expect(wrapper.html()).toBe('<div class=\"timeline-block\" style=\"height:100px\"><div class=\"timeline-line\"></div><div class=\"timeline-progress\" style=\"height:50%\"></div></div>');
+    expect(wrapper.html()).toBe('<div class="timeline-block" style="height:100px"><div class="timeline-line"></div><div class="timeline-progress" style="height:50%"></div></div>');
   });
 
   it('should render progress 0 if < 0', () => {
     const wrapper = shallow(<Timeline height={100} progress={-50} />);
 
-    expect(wrapper.html()).toBe('<div class=\"timeline-block\" style=\"height:100px\"><div class=\"timeline-line\"></div><div class=\"timeline-progress\" style=\"height:0%\"></div></div>');
+    expect(wrapper.html()).toBe('<div class="timeline-block" style="height:100px"><div class="timeline-line"></div><div class="timeline-progress" style="height:0%"></div></div>');
   });
 
   it('should render progress 100 if > 100', () => {
     const wrapper = shallow(<Timeline height={100} progress={105} />);
 
-    expect(wrapper.html()).toBe('<div class=\"timeline-block\" style=\"height:100px\"><div class=\"timeline-line\"></div><div class=\"timeline-progress\" style=\"height:100%\"></div></div>');
+    expect(wrapper.html()).toBe('<div class="timeline-block" style="height:100px"><div class="timeline-line"></div><div class="timeline-progress" style="height:100%"></div></div>');
   });
 
   it('should handle click events', () => {
