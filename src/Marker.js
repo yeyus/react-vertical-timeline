@@ -1,15 +1,14 @@
-'use strict';
-
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class Marker extends React.Component {
   render() {
-    let style = {
-      top: (this.context.height * (this.props.progress/100)) + 'px'
+    const style = {
+      top: `${this.context.height * (this.props.progress / 100)}px`
     };
 
     return (
-      <div className="timeline-marker" style={ style }>
+      <div className="timeline-marker" style={style}>
         <div className="text">{this.props.progress}</div>
       </div>
     );
@@ -17,9 +16,9 @@ export default class Marker extends React.Component {
 }
 
 Marker.contextTypes = {
-  height: React.PropTypes.number.isRequired
+  height: PropTypes.number.isRequired
 };
 
 Marker.propTypes = {
-  progress: React.PropTypes.number.isRequired
+  progress: PropTypes.number.isRequired
 };
