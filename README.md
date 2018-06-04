@@ -13,6 +13,7 @@ import { Timeline, Bookmark } from 'react-vertical-timeline';
 ...
 ```
 
+See [demo](#demo) section
 ## Development
 
 Clone the repo : `git clone https://github.com/yeyus/react-vertical-timeline`.
