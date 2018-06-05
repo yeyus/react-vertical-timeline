@@ -10,7 +10,7 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "test:lint": "eslint . --ignore-path .gitignore",
-    "gh-pages": "catalog build docs",
+    "gh-pages": "catalog build docs --public-url=/react-vertical-timeline/",
     "gh-pages:deploy": "gh-pages -d docs/build",
     "dist:es6": "del-cli ./dist-es6 && cross-env BABEL_ENV=es6 babel ./src --out-dir ./dist-es6",
     "dist:modules": "del-cli ./dist-modules && cross-env BABEL_ENV=modules babel ./src --out-dir ./dist-modules",
