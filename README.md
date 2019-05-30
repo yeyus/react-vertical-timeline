@@ -3,7 +3,9 @@
 
 ## Basic Usage
 
-Include the following package in your package.json : `npm install --save react-vertical-timeline'`.
+Include the following package in your package.json : 
++ Using npm - `npm install --save react-vertical-timeline`.
++ Using yarn - `yarn add react-vertical-timeline`
 
 Import the UI components into your App:
 
